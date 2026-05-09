@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <title>FULLSICKRP – Uradna Stran</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #05060a;
+      --bg-alt: #0b0d14;
+      --accent: #8b5cf6;
+      --accent-soft: rgba(139, 92, 246, 0.15);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --card: #111827;
+      --border: #1f2933;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 3rem 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.9), rgba(15,23,42,0.2));
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, #f97316, #ef4444 40%, #111827 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+    }
+    .brand-text h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .brand-text span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+    .hero-meta {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .pill {
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pill-accent {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: #e5e7eb;
+    }
+    main {
+      padding: 2rem 1.5rem 3rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 1.75rem;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      header { position: static; }
+    }
+    section {
+      margin-bottom: 1.75rem;
+      padding: 1.25rem 1.4rem;
+      border-radius: 14px;
+      background: radial-gradient(circle at top left, rgba(148,163,184,0.08), transparent 55%), var(--card);
+      border: 1px solid var(--border);
+    }
+    section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+    section p { font-size: 0.95rem; color: #e5e7eb; }
+    .muted { color: var(--muted); font-size: 0.9rem; }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: #f9fafb;
+      box-shadow: 0 0 18px rgba(236,72,153,0.35);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      background: rgba(15,23,42,0.9);
+      border-color: var(--border);
+      color: #e5e7eb;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.1rem;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+    li + li { margin-top: 0.25rem; }
+
+    .highlight {
+      border: 1px solid rgba(34,197,94,0.4);
+      background: radial-gradient(circle at top, rgba(34,197,94,0.12), transparent 60%), var(--card);
+    }
+
+    footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: #020617;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo">FS</div>
+        <div class="brand-text">
+          <h1>FULLSICKRP – Uradna Stran</h1>
+          <span>Slovenski FiveM RP projekt</span>
+        </div>
+      </div>
+      <p class="hero-sub">
+        Dom nove RP zgodbe. Sezona 1 prihaja <strong>30.5.2026</strong>.  
+        Realisticen RP, mocna skupnost in unikatna zgodba.
+      </p>
+      <div class="hero-meta">
+        <span class="pill pill-accent">Sezona 1 • 30.5.2026</span>
+        <span class="pill">Slovenski FiveM RP</span>
+        <span class="pill">Staff prijave odprte</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container grid">
+      <!-- LEVA KOLONA -->
+      <div>
+        <section id="o-projektu" class="highlight">
+          <h2>O projektu</h2>
+          <p>
+            FULLSICKRP je sodoben slovenski FiveM RP projekt, zgrajen na profesionalnih standardih,
+            mocni skupnosti in unikatni zgodbi. Nas cilj je ustvariti realistično, stabilno in zabavno
+            RP okolje, kjer ima vsaka odlocitev tezo, vsaka zgodba pomen in vsak igralec svojo vlogo.
+          </p>
+          <p class="muted" style="margin-top:0.5rem;">
+            FULLSICKRP Sezona 1 se zacne <strong>30.5.2026</strong>.
+          </p>
+        </section>
+
+        <section id="pravila">
+          <h2>Pravila</h2>
+          <p class="muted">Priporoceno: tukaj dodas linke ali podstrani s podrobnimi pravili.</p>
+          <ul>
+            <li><strong>RP pravila:</strong> realisticno igranje, brez metagaminga, brez powergaminga, spoštovanje scenarijev.</li>
+            <li><strong>Discord pravila:</strong> spoštovanje clanov, brez zmerjanja, brez reklamiranja, uporaba ticket sistema.</li>
+            <li><strong>Kazenski sistem:</strong> opozorilo, kick, temp ban, perm ban – glede na tezavnost krsitve.</li>
+            <li><strong>Frakcije:</strong> posebna pravila za PD, EMS, kriminalne organizacije in ostale frakcije.</li>
+          </ul>
+        </section>
+
+        <section id="trailer">
+          <h2>Trailer / Launch Info</h2>
+          <p>
+            Sezona 1 prihaja <strong>30.5.2026</strong>.  
+            To je zacetek nove RP zgodbe, kjer ima vsaka odlocitev posledice.
+          </p>
+          <p style="margin-top:0.5rem;">
+            <em>Teaser:</em><br />
+            “Nova era RP se zacne. FULLSICKRP – Sezona 1. 30.5.2026.”
+          </p>
+          <p class="muted" style="margin-top:0.5rem;">
+            Ko bo trailer pripravljen, ga lahko tukaj vgradis kot YouTube embed.
+          </p>
+        </section>
+      </div>
+
+      <!-- DESNA KOLONA -->
+      <div>
+        <section id="staff">
+          <h2>Staff prijava</h2>
+          <p>
+            Ce zelis postati del nase ekipe, izpolni uradno prijavnico.  
+            Iscemo zanesljive, odgovorne in zrele posameznike, ki zelijo pomagati skupnosti
+            in skrbeti za kakovost RP izkusnje.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSedsuTi2cHfxI4R5wAwnpFaNy3XtBcHXGCE8uXKlml5uT-0RA/viewform" target="_blank" rel="noopener">
+              Odpri staff prijavo
+            </a>
+          </div>
+          <p class="muted" style="margin-top:0.6rem;">
+            Na samem obrazcu odgovarjas na vprasanja o izkusnjah, casu, znanju RP in razlogih,
+            zakaj si primeren za FULLSICKRP staff.
+          </p>
+        </section>
+
+        <section id="discord">
+          <h2>Discord</h2>
+          <p>
+            Pridruzi se nasi skupnosti, spremljaj novice, posodobitve, evente in komunikacijo s staff ekipo.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-ghost" href="https://discord.gg/Zpb35QWu9q" target="_blank" rel="noopener">
+              Pridruzi se Discordu
+            </a>
+          </div>
+        </section>
+
+        <section id="donacije">
+          <h2>Donacije / Tebex</h2>
+          <p>
+            Podpri razvoj FULLSICKRP in pridobi dostop do ekskluzivnih paketov, prednosti ali kozmeticnih dodatkov.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-ghost" href="https://sloliferp-shop.tebex.io/" target="_blank" rel="noopener">
+              Odpri Tebex trgovino
+            </a>
+          </div>
+          <p class="muted" style="margin-top:0.6rem;">
+            Ko bo na voljo dedikiran FULLSICKRP Tebex, lahko povezavo enostavno zamenjas.
+          </p>
+        </section>
+
+        <section id="kontakt">
+          <h2>Kontakt</h2>
+          <p>
+            Za podporo, vprasanja ali prijavo tezav:
+          </p>
+          <ul>
+            <li><strong>Discord:</strong> uporabi <code>/support</code> ali ticket sistem na serverju.</li>
+            <li><strong>Staff:</strong> kontaktiras preko uradnih kanalov na Discordu.</li>
+            <li><strong>Email:</strong> (opcijsko – lahko dodas, ce zelis javni kontakt).</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    FULLSICKRP © 2026 – Vse pravice pridřzane. Powered by FULLSICKRP Development.
+  </footer>
+</body>
+</html>
